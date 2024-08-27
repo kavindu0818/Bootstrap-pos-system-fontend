@@ -1,0 +1,39 @@
+.bg-light{
+    position: relative;
+}
+
+h1{
+    position: absolute;
+    left: 40px;
+    top: 30px;
+    text-align: center;
+}
+
+#serchCus{
+    position: absolute; height: 250px; width: 47vw; left: 18vw; top: 100px; margin-top: 10px;
+}
+
+#addCus{
+    width: 32vw; height: 250px; position: absolute; right: 0.5vw; top: 100px; margin: 10px
+}
+
+@media only screen and (min-width: 320px) and (max-width: 750px) {
+  #serchCus{
+    top: 100px;
+      left: 1vw;
+      width: 100%;
+}
+
+    #addCus{
+        top: 350px;
+        left: 1vw;
+    }
+
+    #cusTable{
+
+       bottom: -40px;
+        left: -10vw;
+    }
+
+
+}

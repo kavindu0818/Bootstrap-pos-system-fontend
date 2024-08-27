@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="../css/Home.css">
+    <link rel="stylesheet" href="../css/Customer.css">
+    <link rel="stylesheet" href="../css/Item.css">
+    <link rel="stylesheet" href="../css/Orders.css">
+
+
+    <link rel="stylesheet" href="../boostrap/css/bootstrap.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+</head>
+<body>
+
+    <section class="container-fluid">
+        <div style="height: 100px; width: 100%" class="bg-light" >
+            <h1 class="text-success">POS SYSTEM</h1>
+            <h3 id="menu" onclick="openmenu()">MENU</h3>
+<!--            <h2 class="text-success"  id="time-display"></h2>-->
+<!--            <div id="time-display" class="display-4"></div>-->
+
+        </div>
+    </section>
+
+
+    <section class="container-fluid">
+    <div style=""  class="bg-success" id="navDiv">
+
+
+        <ul class="nav nav-pills flex-column mb-auto">
+            <li class="nav-item">
+                <div class="nav-link active" id="home-btn">
+                    Home
+                </div>
+            </li>
+            <li>
+
+                <div class="nav-link text-white" id="customer-btn">
+                    Customer
+                </div>
+            </li>
+            <li>
+
+                <div class="nav-link text-white" id="item-btn">
+                    Item
+                </div>
+            </li>
+            <li>
+                <div class="nav-link text-white" id="Order-btn">
+                    Order
+                </div>
+
+            </li>
+            <li>
+                <div class="nav-link text-white" id="others-btn">
+                  Others
+                </div>
+            </li>
+        </ul>
+
+    </div>
+    </section>
+
+
+
+<!--    <section class="container-fluid">-->
+
+    <section id="home" style="display: block">
+
+        <div class="calendar" style="left: 75vw; top: 110px; position: absolute; height: 400px">
+            <div class="calendar-header">
+                <button id="prev">&lt;</button>
+                <div id="month-year"></div>
+                <button id="next">&gt;</button>
+            </div>
+            <div class="calendar-body" style="position: absolute; height: 80px">
+                <div class="day-names">
+                    <div>Sun</div>
+                    <div>Mon</div>
+                    <div>Tue</div>
+                    <div>Wed</div>
+                    <div>Thu</div>
+                    <div>Fri</div>
+                    <div>Sat</div>
+                </div>
+                <div id="days" class="days"></div>
+            </div>
+        </div>
+
+
+        <div class="container mt-5" style="position: absolute; left: 18vw; top: 400px; width: 55vw" >
+            <div class="row">
+                <div class="col text-center">
+                    <h2>Week Orders Presentation Bar</h2>
+                    <p>Click on the bars to see the number of orders for each day of the week.</p>
+                    <div class="progress">
+                        <div id="monday" class="progress-bar bg-success" role="progressbar" style="width: 14.28%;" data-toggle="tooltip" data-placement="top" title="Monday: 20 Orders">20</div>
+                        <div id="tuesday" class="progress-bar bg-info" role="progressbar" style="width: 14.28%;" data-toggle="tooltip" data-placement="top" title="Tuesday: 30 Orders">30</div>
+                        <div id="wednesday" class="progress-bar bg-warning" role="progressbar" style="width: 14.28%;" data-toggle="tooltip" data-placement="top" title="Wednesday: 10 Orders">10</div>
+                        <div id="thursday" class="progress-bar bg-danger" role="progressbar" style="width: 14.28%;" data-toggle="tooltip" data-placement="top" title="Thursday: 15 Orders">15</div>
+                        <div id="friday" class="progress-bar bg-primary" role="progressbar" style="width: 14.28%;" data-toggle="tooltip" data-placement="top" title="Friday: 25 Orders">25</div>
+                        <div id="saturday" class="progress-bar bg-secondary" role="progressbar" style="width: 14.28%;" data-toggle="tooltip" data-placement="top" title="Saturday: 40 Orders">40</div>
+                        <div id="sunday" class="progress-bar bg-dark" role="progressbar" style="width: 14.28%;" data-toggle="tooltip" data-placement="top" title="Sunday: 50 Orders">50</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <section class="container-fluid">
+        <div id="div1" class = "bg-black" style="background-color: black;">
+            <h2 id="h1c" class="fw-bold">CUSTOMER</h2>
+            <h3 id="customer-count"></h3>
+        </div>
+    </section>
+
+    <section class="container-fluid">
+        <div id="div2" class = "bg-black">
+            <h2 id="h2c" class="fw-bold">ITEMS</h2>
+            <h3 id="item-count"></h3>
+
+        </div>
+    </section>
+
+    <section class="container-fluid">
+        <div id="div3" class = "bg-black">
+            <h2 id="h3c" class="fw-bold">ORDERS</h2>
+            <h3 id="order-count"></h3>
+
+        </div>
+    </section>
+</section>
+<!--</section>-->
+
+
+<section id="customer" class="section" style="display: none" >
+    <section class="container-fluid">
+        <div  class="bg-light" id="serchCus">
+
+            <label style="left: 1.5vw; position: absolute" class="fw-bold text-black">Search Customer</label>
+            <input type="text" class="form-control" id="serch-inp-cus" placeholder="Customer Id" aria-label="Recipient's username" aria-describedby="button-addon2" style="top: 25px; position: absolute; width: 20vw; left: 1.5vw; height: 30px">
+<!--            <button class="btn btn-outline-secondary" type="button" id="serch-btn-cus" style="top: 25px; position: absolute; left: 22vw; height: 30px">Search</button>-->
+
+            <button type="button" class="btn btn-primary" id="serch-btn-cus"
+                    style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;top: 25px; position: absolute; left: 22vw; background-color: black">
+                Search Customer
+            </button>
+
+            <label style="left: 1.5vw; position: absolute; top: 75px; z-index: 100; width: 200px;" class="fw-bold text-black">Customer Id</label>
+            <input type="text" class="form-control" id="serch-cus-id" placeholder="" aria-label="Recipient's username" aria-describedby="button-addon2" style="top: 100px; position: absolute; width: 20vw; left: 1.5vw; height: 30px">
+
+            <label style="left: 25.5vw; position: absolute; top: 75px; z-index: 100; width: 200px;" class="fw-bold text-black">Customer Name</label>
+            <input type="text" class="form-control" id="serch-cus-name" placeholder="" aria-label="Recipient's username" aria-describedby="button-addon2" style="top: 100px; position: absolute; width: 20vw; left: 25.5vw; height: 30px">
+
+            <label style="left: 1.5vw; position: absolute; top: 135px; z-index: 100; width: 200px;" class="fw-bold text-black">Address</label>
+            <input type="text" class="form-control" id="serch-cus-address" placeholder="" aria-label="Recipient's username" aria-describedby="button-addon2" style="top: 160px; position: absolute; width: 20vw; left: 1.5vw; height: 30px">
+
+            <label style="left: 25.5vw; position: absolute; top: 135px; z-index: 100; width: 200px;" class="fw-bold text-black">Salary</label>
+            <input type="text" class="form-control" id="serch-cus-salary" placeholder="" aria-label="Recipient's username" aria-describedby="button-addon2" style="top: 160px; position: absolute; width: 20vw; left: 25.5vw; height: 30px">
+
+<!--            <button type="button" class="btn btn-warning" id="btn-update-cus" style="top: 200px; left: 33vw; position: absolute; height: 30px; color: white;">Update</button>-->
+<!--            <button type="button" class="btn btn-danger" id="btn-remove-cus" style="top: 200px; left: 40vw; position: absolute; height: 30px">Remove</button>-->
+
+            <button type="button" class="btn btn-primary" id="btn-update-cus"
+                    style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;top: 200px; width: 6vw; left: 33vw; position: absolute; color: white; background-color: yellow;">
+               Update
+            </button>
+
+            <button type="button" class="btn btn-primary" id="btn-remove-cus"
+                    style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;top: 200px; top: 200px; width: 6vw; left: 39.5vw; position: absolute; color: white; background-color: darkred">
+               Remove
+            </button>
+
+        </div>
+    </section>
+
+    <section class="container-fluid">
+        <div  class="bg-light" id="addCus" >
+            <p CLASS="fw-bold" style="position: absolute; right: 0px">+ ADD CUSTOMER</p>
+
+            <label style="left: 1vw; position: absolute; top: 20px; z-index: 100; width: 200px;" class="fw-bold text-black">ID</label>
+            <input type="text" id="add-inp-cusId" class="form-control" placeholder="" aria-label="Recipient's username" aria-describedby="button-addon2" style="top: 40px; position: absolute; width: 20vw; left: 1vw; height: 30px">
+
+            <label style="left: 1vw; position: absolute; top: 70px; z-index: 100; width: 200px;" class="fw-bold text-black">Name</label>
+            <input type="text" id="add-inp-cusName" class="form-control" placeholder="" aria-label="Recipient's username" aria-describedby="button-addon2" style="top: 90px; position: absolute; width: 20vw; left: 1vw; height: 30px">
+
+            <label style="left: 1vw; position: absolute; top: 120px; z-index: 100; width: 200px;" class="fw-bold text-black">Address</label>
+            <input type="text" id="add-inp-cusAddress" class="form-control" placeholder="" aria-label="Recipient's username" aria-describedby="button-addon2" style="top: 140px; position: absolute; width: 20vw; left: 1vw; height: 30px">
+
+            <label style="left: 1vw; position: absolute; top: 168px; z-index: 100; width: 200px;" class="fw-bold text-black">Salary</label>
+            <input type="text" id="add-inp-cusSalary" class="form-control" placeholder="" aria-label="Recipient's username" aria-describedby="button-addon2" style="top: 188px; position: absolute; width: 20vw; left: 1vw; height: 30px">
+
+<!--            <input class="btn btn-primary" id="add-btn-cus" type="button" value="Submit" style="top: 215px; right: 2vw; position: absolute; height: 30px; text-align: center">-->
+
+            <button type="button" class="btn btn-primary" id="add-btn-cus"
+                    style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem; top: 215px; right: 2vw; width: 7vw; position: absolute; background-color: darkblue">
+                Submit
+            </button>
+
+        </div>
+    </section>
+
+    <section>
+        <div style="width: 80vw; height: 30vh; bottom: -10px; position: absolute; left: 18vw" class="bg-light"  id="cusTable">
+
+<!--            cus-table-->
+
+            <table class="table table-dark table-striped" id="cus-table" style="position:absolute; height: 150px; bottom: 0">
+                <thead>
+
+                <th>ID</th>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Salary</th>
+                ...
+                </thead>
+                <tbody id="tbl-value">
+                <tr class="table-active">
+                    <td class="tbl-col-id"></td>
+                    <td class="tbl-col-name"></td>
+                    <td class="tbl-col-address"></td>
+                    <td class="tbl-col-salary">
+                </tr>
+
+                </tbody>
+            </table>
+<!--            ==============================-->
+<!--            <table class="table" id="cus-table">-->
+<!--                <thead class="table-dark">-->
+
+<!--                <th>ID</th>-->
+<!--                <th>Name</th>-->
+<!--                <th>Address</th>-->
+<!--                <th>Salary</th>-->
+
+<!--                </thead>-->
+<!--                <tbody id="tbl-value">-->
+<!--                <tr>-->
+<!--                    <td class="tbl-col-id"></td>-->
+<!--                    <td class="tbl-col-name"></td>-->
+<!--                    <td class="tbl-col-address"></td>-->
+<!--                    <td class="tbl-col-salary"></td>-->
+<!--                </tr>-->
+<!--                </tbody>-->
+<!--            </table>-->
+
+        </div>
+    </section>
+
+</section>
+
+
+    <section id="item" class="section" style="display: none;">
+        <section class="container-fluid">
+            <div style="position: absolute; height: 45vh; width: 46vw; left: 18vw; top: 100px; margin-top: 10px;" class="bg-light">
+
+                <label style="left: 1.5vw; position: absolute" class="fw-bold text-black">Search Items</label>
+                <input type="text" id="serch-inp-item" class="form-control" placeholder="Customer Id" aria-label="Recipient's username" aria-describedby="button-addon2" style="top: 25px; position: absolute; width: 20vw; left: 1.5vw; height: 30px">
+<!--                <button class="btn btn-outline-secondary"  type="button" id="itm-serch-btn" style="top: 25px; position: absolute; left: 22vw; height: 30px">Search</button>-->
+
+                <button type="button" class="btn btn-primary" id="itm-serch-btn"
+                        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;top: 25px; position: absolute; left: 22vw; background-color: black">
+                    Search Customer
+                </button>
+                <label style="left: 1.5vw; position: absolute; top: 75px; z-index: 100; width: 200px;" class="fw-bold text-black">Code</label>
+                <input type="text" id="s-item-inp-code" class="form-control" placeholder="" aria-label="Recipient's username" aria-describedby="button-addon2" style="top: 100px; position: absolute; width: 20vw; left: 1.5vw; height: 30px">
+
+                <label style="left: 25.5vw; position: absolute; top: 75px; z-index: 100; width: 200px;" class="fw-bold text-black">Name</label>
+                <input type="text" id="s-item-inp-name" class="form-control" placeholder="" aria-label="Recipient's username" aria-describedby="button-addon2" style="top: 100px; position: absolute; width: 20vw; left: 25.5vw; height: 30px">
+
+                <label style="left: 1.5vw; position: absolute; top: 135px; z-index: 100; width: 200px;" class="fw-bold text-black">Quantity</label>
+                <input type="text" class="form-control" id="s-item-inp-qty" placeholder="" aria-label="Recipient's username" aria-describedby="button-addon2" style="top: 160px; position: absolute; width: 20vw; left: 1.5vw; height: 30px">
+
+                <label style="left: 25.5vw; position: absolute; top: 135px; z-index: 100; width: 200px;" class="fw-bold text-black">Price</label>
+                <input type="text" class="form-control" id="s-item-inp-price" placeholder="" aria-label="Recipient's username" aria-describedby="button-addon2" style="top: 160px; position: absolute; width: 20vw; left: 25.5vw; height: 30px">
+
+<!--                <button type="button" class="btn btn-warning" id="btn-update-item" style="top: 200px; left: 29vw; position: absolute; height: 5vh; color: white;">Update</button>-->
+<!--                <button type="button" class="btn btn-danger" id="btn-remove-item" style="top: 200px; left: 37vw; position: absolute; height: 5vh">Remove</button>-->
+
+                <button type="button" class="btn btn-primary" id="btn-update-item"
+                        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;top: 200px; width: 6vw; left: 33vw; position: absolute; color: white; background-color: yellow;">
+                    Update
+                </button>
+
+                <button type="button" class="btn btn-primary" id="btn-remove-item"
+                        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;top: 200px; top: 200px; width: 6vw; left: 39.5vw; position: absolute; color: white; background-color: darkred">
+                    Remove
+                </button>
+
+            </div>
+        </section>
+
+        <section class="container-fluid">
+            <div style="width: 31vw; height: 250px; position: absolute; right: 1vw; top: 100px; margin: 10px" class="bg-light" >
+                <p CLASS="fw-bold" style="position: absolute; right: 0px">+ ADD ITEMS</p>
+
+                <label style="left: 1.5vw; position: absolute; top: 20px; z-index: 100; width: 200px;" class="fw-bold text-black">Code</label>
+                <input type="text" class="form-control" id="add-item-code" placeholder="" aria-label="Recipient's username" aria-describedby="button-addon2" style="top: 40px; position: absolute; width: 20vw; left: 1.5vw; height: 30px">
+
+                <label style="left: 1.5vw; position: absolute; top: 70px; z-index: 100; width: 200px;" class="fw-bold text-black">Name</label>
+                <input type="text" class="form-control" id="add-item-name" placeholder="" aria-label="Recipient's username" aria-describedby="button-addon2" style="top: 90px; position: absolute; width: 20vw; left: 1.5vw; height: 30px">
+
+                <label style="left: 1.5vw; position: absolute; top: 120px; z-index: 100; width: 200px;" class="fw-bold text-black">Quantity</label>
+                <input type="text" class="form-control" id="add-item-qty" placeholder="" aria-label="Recipient's username" aria-describedby="button-addon2" style="top: 140px; position: absolute; width: 20vw; left: 1.5vw; height: 30px">
+
+                <label style="left: 1.5vw; position: absolute; top: 168px; z-index: 100; width: 200px;" class="fw-bold text-black">Price</label>
+                <input type="text" class="form-control" id="add-item-price" placeholder="" aria-label="Recipient's username" aria-describedby="button-addon2" style="top: 188px; position: absolute; width: 20vw; left: 1.5vw; height: 30px">
+
+<!--                <input class="btn btn-primary" id="btn-add-item" type="submit" value="Submit" style="top: 215px; right: 2vw; position: absolute; height: 30px">-->
+
+                <button type="button" class="btn btn-primary" id="btn-add-item"
+                        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem; top: 215px; right: 2vw; width: 7vw; position: absolute; background-color: darkblue">
+                    Submit
+                </button>
+
+            </div>
+        </section>
+
+        <section>
+            <div style="width: 80vw; height: 30vh; bottom: -15px; position: absolute; left: 18vw" class="bg-light" >
+
+                <table class="table table-dark table-striped" id="item-table" style=" height: 150px;">
+                    <thead>
+
+                    <th>Code</th>
+                    <th>Name</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+
+                    </thead>
+                    <tbody id="item-tbl-value">
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </section>
+
+    </section>
+
+
+
+    <section id="orders" class="section" style="display: none">
+
+        <section>
+        <div style="position: absolute; height: 250px; width: 25.5vw; left: 18.5vw; top: 100px; margin-top: 10px;" class="bg-light">
+
+            <div style="width: 25.5vw; height: 40px; position: absolute" class="bg-success">
+                <p class="text-light" style="position: absolute; left: 10px; top: 8px;">Invoice Details</p>
+            </div>
+
+            <label style="left: 1.5vw; position: absolute; top: 50px; z-index: 100; width: 200px;" class="fw-bold text-black">Code</label>
+            <input type="text" class="form-control" id="invoice-code" placeholder="" aria-label="Recipient's username" aria-describedby="button-addon2" style="top: 70px; position: absolute; width: 10vw; left: 1.5vw; height: 25px">
+
+            <label style="left: 14.5vw; position: absolute; top: 50px; z-index: 100; width: 200px;" class="fw-bold text-black">Date</label>
+            <input type="date" value="2024-05-06" id="invoice-date" max="2024-07-05" min="2024-05-06" style="left: 14.5vw; top: 70px; position: absolute; height: 25px; width: 10vw;">
+
+            <label style="left: 1.5vw; position: absolute; top: 95px; z-index: 100; width: 200px;" class="fw-bold text-black">Customer</label>
+            <select class="form-select" id="invoice-input-cus-cmb" style="position: absolute; top: 115px; left: 1.5vw; width: 10vw; height: 25px;">
+                <!-- Options for select element would go here -->
+            </select> <!-- Closing tag for select element -->
+
+            <label style="left: 14.5vw; position: absolute; top: 95px; z-index: 100; width: 200px;" class="fw-bold text-black">salary</label>
+            <input type="text" class="form-control" id="invoice-cus-salary" placeholder="" aria-label="Recipient's username" aria-describedby="button-addon2" style="top: 115px; position: absolute; width: 10vw; left: 14.5vw; height: 25px;">
+
+            <label style="left: 1.5vw; position: absolute; top: 140px; z-index: 100; width: 200px;" class="fw-bold text-black">Name</label>
+            <input type="text" class="form-control" id="invoice-cus-name" placeholder="" aria-label="Recipient's username" aria-describedby="button-addon2" style="top: 160px; position: absolute; left: 1.5vw; height: 25px; width: 23vw">
+
+
+            <label style="left: 1.5vw; position: absolute; top: 185px; z-index: 100; width: 200px;" class="fw-bold text-black">Address</label>
+            <input type="text" class="form-control" id="invoice-cus-address" placeholder="" aria-label="Recipient's username" aria-describedby="button-addon2" style="top: 205px; position: absolute; width: 23vw; left: 1.5vw; height: 25px;">
+
+        </div>
+    </section>
+
+
+    <section>
+        <div style="position: absolute; height: 250px; width: 25.5vw; left: 48vw; top: 100px; margin-top: 10px;" class="bg-light">
+
+            <div style="width: 25.5vw; height: 40px; position: absolute" class="bg-success">
+                <P class="text-light" style="position: absolute; left: 10px; top: 8px;">Item Select</P>
+            </div>
+
+            <label style="left: 1.5vw; position: absolute; top: 50px; z-index: 100; width: 10vw;" class="fw-bold text-black">Item</label>
+            <select class="form-select" id="item-select-cmb" style="position: absolute; top: 70px; left: 1.5vw; width: 10vw; height: 25px;">
+                <!-- Options for select element would go here -->
+            </select>
+
+            <label style="left: 14.5vw; position: absolute; top: 50px; z-index: 100; width: 200px;" class="fw-bold text-black">Item Name</label>
+            <input type="text" id="itemName" class="form-control" placeholder="" aria-label="Recipient's username" aria-describedby="button-addon2" style="top: 70px; position: absolute; width: 10vw; left: 14.5vw; height: 25px;">
+
+            <label style="left: 1.5vw; position: absolute; top: 95px; z-index: 100; width: 200px;" class="fw-bold text-black">Price</label>
+            <input type="text" id="item-select-price" class="form-control" placeholder="" aria-label="Recipient's username" aria-describedby="button-addon2" style="top: 115px; position: absolute; width: 10vw; left: 1.5vw; height: 25px;">
+
+
+            <label style="left: 14.5vw; position: absolute; top: 95px; z-index: 100; width: 200px;" class="fw-bold text-black">QtyOfHand</label>
+            <input type="text" id="item-select-qty" class="form-control" placeholder="" aria-label="Recipient's username" aria-describedby="button-addon2" style="top: 115px; position: absolute; width: 10vw; left: 14.5vw; height: 25px;">
+
+<!--            <div class="col-md-4 fw-bold">-->
+<!--                <span class="errorOrderQty">Please enter a amount lower than: <span id="orderQtyValue"></span></span>-->
+<!--                </div>-->
+            <label style="left: 1.5vw; position: absolute; top: 140px; z-index: 100; width: 200px;" class="fw-bold text-black">Order Quantity</label>
+            <input type="text" id="item-select-orderQty" class="form-control" placeholder="" aria-label="Recipient's username" aria-describedby="button-addon2" style="top: 160px; position: absolute; left: 1.5vw; height: 25px; width: 10vw">
+
+            <button type="button" id="item-select-add-btn" class="btn btn-danger" style="right: 3vw; top: 200px; position: absolute">Add Item</button>
+        </div>
+
+    </section>
+
+    <section>
+        <div style="position: absolute; height: 250px; width: 20vw; left: 77vw; top: 100px; margin-top: 10px;" class="bg-light">
+            <p class="fw-bold text-primary" style="left: 1.5vw; position: absolute; top: 40px">Total: </p>
+            <input type="text" class="form-control" id="total" placeholder="" aria-label="Recipient's username" aria-describedby="button-addon2" style="top: 40px; position: absolute; left: 6vw; height: 25px; width: 110px">
+
+            <p class="fw-bold text-danger" style="left: 1.5vw; position: absolute; top: 70px">SubTotal: </p>
+            <input type="text" class="form-control" id="subTotal" placeholder="" aria-label="Recipient's username" aria-describedby="button-addon2" style="top: 70px; position: absolute; left: 8vw; height: 25px; width: 110px">
+
+            <label style="position: absolute; left: 1.5vw; top: 110px;" class="fw-bold">cash</label>
+            <input type="text" class="form-control" id="cash" placeholder="" aria-label="Recipient's username" aria-describedby="button-addon2" style="top: 134px; position: absolute; left: 20px; height: 20px; width: 90px">
+
+            <label style="position: absolute; left: 9.5vw; top: 110px;" class="fw-bold">Discount</label>
+            <input type="text" class="form-control" id="discount" placeholder="" aria-label="Recipient's username" aria-describedby="button-addon2" style="top: 135px; position: absolute; left: 9vw; height: 20px; width: 10vw">
+
+            <!--            <select class="form-select" multiple aria-label="Multiple select example" style="position: absolute; left: 130px; top: 135px; width: 90px; height: 20px;">-->
+<!--                <option selected></option>-->
+<!--            </select>-->
+
+            <label style="position: absolute; left: 1.5vw; top: 160px;" class="fw-bold">Balance</label>
+            <input type="text" class="form-control" id="balance" placeholder="" aria-label="Recipient's username" aria-describedby="button-addon2" style="top: 180px; position: absolute; left: 20px; height: 20px; width: 150px">
+
+            <button type="button" id="purchase" class="btn btn-success" style="position: absolute; bottom: 5px; left: 80px">Purchase</button>
+
+        </div>
+    </section>
+
+    <section>
+        <div style="width: 80vw; height: 230px; bottom: -70px; position: absolute; left: 18vw" class="bg-light" >
+
+            <table  class="table table-dark table-sm" id="orderTable" style="height: 150px">
+                <thead >
+
+                <th>Item Code</th>
+                <th>Item Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+
+                </thead>
+                <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </section>
+    </section>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../boostrap/js/bootstrap.js"></script>
+    <script type="module" src="../js/script.js"></script>
+    <script type="module" src="../controller/customerController.js"></script>
+    <script type="module" src="../controller/itemController.js"></script>
+    <script type="module" src="../controller/orderController.js"></script>
+<!--    <script type="module" src="../controller/itemController.js"></script>-->
+<!--    <script src="../js/db.js"></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+<script>
+    function openmenu() {
+    const navDiv = document.getElementById('navDiv');
+    if (navDiv) {
+        if (navDiv.style.display === "block") {
+            navDiv.style.display = "none";
+        } else {
+            navDiv.style.display = "block";
+        }
+    }
+    }
+</script>
+</body>
+</html>

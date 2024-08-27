@@ -1,0 +1,10 @@
+.bg-light{
+    position: relative;
+}
+
+h1{
+    position: absolute;
+    left: 40px;
+    top: 30px;
+    text-align: center;
+}
